@@ -1,0 +1,10 @@
+{
+  "lean4.automaticallyBuildDependencies": false,
+  "lean4.serverArgs": ["--memory=8192"],
+  "editor.rulers": [100],
+  "files.exclude": {
+    "**/.lake": true,
+    "**/build": true,
+    "blueprint/web": true
+  }
+}
