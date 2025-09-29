@@ -1,6 +1,6 @@
 # The Min-Max Construction of Minimal Surfaces in Lean4
 
-📊 **[View Live Blueprint](https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/)** - Interactive dependency graph and formalization progress
+📊 **[View Live Blueprint](https://min-max-construction.zeabur.app/)** - Interactive dependency graph and formalization progress
 
 A formalization of the Colding-De Lellis paper "The min-max construction of minimal surfaces" in Lean 4.
 
@@ -29,20 +29,20 @@ blueprint/
 
 ## Blueprint Visualization
 
-The project now includes an interactive blueprint that visualizes the dependency graph of theorems and definitions.
+The project includes an interactive blueprint that visualizes the dependency graph of theorems and definitions.
 
-### Viewing the Blueprint
+### Viewing the Blueprint Online
 
-Due to browser security restrictions, the blueprint must be served via HTTP:
+🌐 **[min-max-construction.zeabur.app](https://min-max-construction.zeabur.app/)** - Live deployment (auto-updates on push)
+
+### Viewing Locally
+
+For local development:
 
 ```bash
-# Quick view script (recommended)
-~/view-blueprint.sh
-
-# Or manually:
 cd blueprint/web
 python3 -m http.server 8000
-# Then open http://localhost:8000/index.html
+# Then open http://localhost:8000
 ```
 
 ### Blueprint Features
@@ -121,31 +121,25 @@ lake clean
 lake build
 ```
 
-### Updating the Online Blueprint
+### Updating the Blueprint
 
-When you make changes to the blueprint, follow these steps to update the online version:
+To update the online blueprint after making changes:
 
-1. Update blueprint source files in the `blueprint/src/` directory on the main branch
-2. Regenerate the HTML:
+```bash
+# Use the update script
+~/update-blueprint.sh
 
-   ```bash
-   cd blueprint
-   leanblueprint web
-   ```
+# Or manually:
+cd blueprint
+leanblueprint web
+cd ..
+cp -r blueprint/web/* .
+git add *.html js styles declarations *.svg
+git commit -m "Update blueprint"
+git push origin main
+```
 
-3. Deploy to GitHub Pages:
-
-   ```bash
-   git checkout gh-pages
-   rm -rf *
-   cp -r ../blueprint/web/* .
-   git add -A
-   git commit -m "Update blueprint"
-   git push origin gh-pages
-   git checkout main
-   ```
-
-The updated blueprint will be live at <https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/> within a few minutes.
+The blueprint at [min-max-construction.zeabur.app](https://min-max-construction.zeabur.app/) will automatically update within a few minutes.
 
 ## Installation
 
@@ -168,7 +162,7 @@ cd The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4
 lake build
 ```
 
-1. View blueprint (optional):
+1. View blueprint locally (optional):
 
 ```bash
 cd blueprint
@@ -227,6 +221,7 @@ This project is licensed under the Apache 2.0 License - see the LICENSE file for
 - [x] Basic structure definitions
 - [x] Theorem statement
 - [x] Blueprint visualization with dependency graph
+- [x] Online deployment with auto-update
 - [ ] Complete varifold theory
 - [ ] Implement min-max procedure
 - [ ] Prove main theorem
