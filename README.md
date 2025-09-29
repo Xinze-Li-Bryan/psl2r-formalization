@@ -1,9 +1,5 @@
 # The Min-Max Construction of Minimal Surfaces in Lean4
 
-📊 **[View Live Blueprint](https://min-max-construction.zeabur.app/)** - Interactive dependency graph and formalization progress
-
-A formalization of the Colding-De Lellis paper "The min-max construction of minimal surfaces" in Lean 4.
-
 ## Main Goal
 
 Formalize **Theorem 1.6 (Simon-Smith)**:
