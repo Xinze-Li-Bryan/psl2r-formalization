@@ -1,0 +1,7 @@
+# 告诉 GitHub 这些是生成的文件，不计入语言统计
+docbuild/.lake/** linguist-generated=true
+blueprint/web/** linguist-generated=true
+home_page/** linguist-vendored=true
+
+# 确保 Lean 被识别为主要语言
+*.lean linguist-language=Lean
