@@ -1,0 +1,50 @@
+\documentclass{report}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+
+\title{The Min-Max Construction of Minimal Surfaces}
+\author{Formalization in Lean 4}
+
+\begin{document}
+\maketitle
+
+\chapter{Introduction}
+
+This document tracks the formalization of the Colding-De Lellis paper on minimal surfaces.
+
+\section{Main Theorem}
+
+\begin{theorem}[Simon-Smith]
+\label{thm:simon_smith}
+\lean{MinimalSurfaces.simon_smith}
+Let $M$ be a closed 3-manifold with a Riemannian metric. For any saturated set 
+of generalized families of surfaces $\Lambda$, there is a min-max sequence obtained 
+from $\Lambda$ and converging in the sense of varifolds to a smooth embedded minimal 
+surface with area $m_0(\Lambda)$ (multiplicity is allowed).
+\end{theorem}
+
+\chapter{Basic Definitions}
+
+\section{Manifolds and Surfaces}
+
+\begin{definition}[Closed Riemannian 3-Manifold]
+\label{def:closed_riemannian_3_manifold}
+\lean{MinimalSurfaces.ClosedRiemannian3Manifold}
+A closed Riemannian 3-manifold is a compact metric space of dimension 3.
+\end{definition}
+
+\begin{definition}[Embedded Surface]
+\label{def:embedded_surface}
+\lean{MinimalSurfaces.EmbeddedSurface}
+An embedded surface in a manifold $M$ is a subset with appropriate embedding conditions.
+\end{definition}
+
+\chapter{Varifold Theory}
+
+\begin{definition}[Varifold]
+\label{def:varifold}
+\lean{MinimalSurfaces.Varifold}
+A $k$-varifold in an $n$-dimensional manifold is a Radon measure on the Grassmann bundle.
+\end{definition}
+
+\end{document}

@@ -1,0 +1,10 @@
+MinimalSurfaces.simon_smith
+MinimalSurfaces.ClosedRiemannian3Manifold
+MinimalSurfaces.EmbeddedSurface
+MinimalSurfaces.Varifold
+MinimalSurfaces.GeneralizedFamily
+MinimalSurfaces.SaturatedSet
+MinimalSurfaces.m0
+MinimalSurfaces.is_minimal
+MinimalSurfaces.area
+MinimalSurfaces.convergesInVarifoldSense
