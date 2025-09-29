@@ -121,6 +121,32 @@ lake clean
 lake build
 ```
 
+### Updating the Online Blueprint
+
+When you make changes to the blueprint, follow these steps to update the online version:
+
+1. Update blueprint source files in the `blueprint/src/` directory on the main branch
+2. Regenerate the HTML:
+
+   ```bash
+   cd blueprint
+   leanblueprint web
+   ```
+
+3. Deploy to GitHub Pages:
+
+   ```bash
+   git checkout gh-pages
+   rm -rf *
+   cp -r ../blueprint/web/* .
+   git add -A
+   git commit -m "Update blueprint"
+   git push origin gh-pages
+   git checkout main
+   ```
+
+The updated blueprint will be live at <https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/> within a few minutes.
+
 ## Installation
 
 1. Install Lean 4:
