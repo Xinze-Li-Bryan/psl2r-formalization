@@ -1,5 +1,7 @@
 # The Min-Max Construction of Minimal Surfaces in Lean4
 
+📊 **[View Live Blueprint](https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/)** - Interactive dependency graph and formalization progress
+
 A formalization of the Colding-De Lellis paper "The min-max construction of minimal surfaces" in Lean 4.
 
 ## Main Goal
