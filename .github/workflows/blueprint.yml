@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: false
       - name: Install Lean
         uses: leanprover/lean-action@v1
       - name: Build Blueprint
@@ -22,3 +24,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./blueprint/web
+          exclude_assets: '.github,.lake'
