@@ -5,7 +5,7 @@ import Mathlib.Topology.MetricSpace.Basic
 
 /-!
 # 极小曲面的 Min-Max 构造
-基于 Pitts (1981) 和 Simon-Smith 的工作
+基于 Pitts (1981) 和 Simon-Smith 的工作 - 测试更新
 参考：De Lellis & Colding - The min-max construction of minimal surfaces
 arxiv:math/0303305
 -/

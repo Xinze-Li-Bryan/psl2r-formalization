@@ -1,27 +1,36 @@
-name: Deploy Blueprint
+name: Build and Deploy Blueprint
+
 on:
   push:
     branches: [main]
-    paths:
-      - 'blueprint/src/**'
-      - 'MinimalSurfaces/**'
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      
+      - name: Install Python
+        uses: actions/setup-python@v4
         with:
-          submodules: false
-      - name: Install Lean
-        uses: leanprover/lean-action@v1
-      - name: Build Blueprint
+          python-version: '3.10'
+      
+      - name: Install leanblueprint
+        run: pip install leanblueprint
+      
+      - name: Build blueprint
         run: |
           cd blueprint
           leanblueprint web
+      
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./blueprint/web
-          exclude_assets: '.github,.lake'
+        run: |
+          cd blueprint/web
+          rm -rf .lake declarations/declarations
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -A -- ':!.lake'
+          git commit -m "Deploy blueprint"
+          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:gh-pages
