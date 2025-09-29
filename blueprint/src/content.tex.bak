@@ -1,0 +1,96 @@
+\chapter{The Min--Max Construction of Minimal Surfaces}
+
+This blueprint formalizes the min--max construction of minimal surfaces,
+based on the work of Pitts, Simon--Smith, and Colding--de Lellis.
+
+\section{Varifold Theory}
+
+\begin{definition}[Varifold]\label{def:varifold-struct}
+\lean{MinimalSurfaces.Varifold}
+A $k$-dimensional varifold in an $n$-dimensional manifold $M$, represented
+as a Radon measure on the Grassmann bundle.
+\end{definition}
+
+\begin{definition}[Integer varifold]\label{def:int-varifold}
+\lean{MinimalSurfaces.IntegerVarifold}
+An integer rectifiable varifold, with an associated multiplicity function.
+\end{definition}
+
+\begin{definition}[Mass]\label{def:mass}
+\lean{MinimalSurfaces.mass}
+The mass (total weight, or area) of a varifold.
+\end{definition}
+
+\begin{definition}[Varifold convergence]\label{def:varifold-conv}
+\lean{MinimalSurfaces.convergesInVarifoldSense}
+Definition of convergence in the varifold sense.
+\end{definition}
+
+\section{Minimal Surfaces and Area}
+
+\begin{definition}[Area functional]\label{def:area}
+\lean{MinimalSurfaces.area}
+The area of an embedded surface, defined via the Hausdorff measure.
+\end{definition}
+
+\begin{definition}[Minimal surface]\label{def:is-minimal}
+\lean{MinimalSurfaces.is_minimal}
+A surface is minimal if its mean curvature vanishes identically.
+\end{definition}
+
+\section{Pitts' Existence Theorem}
+
+\begin{theorem}[Pitts]\label{thm:pitts}
+\lean{MinimalSurfaces.pitts_existence}
+In any closed Riemannian $3$-manifold, there exists an embedded minimal surface.
+\uses{def:area, def:is-minimal}
+\end{theorem}
+
+\section{Min--Max Theory}
+
+\begin{definition}[Generalized family]\label{def:family}
+\lean{MinimalSurfaces.GeneralizedFamily}
+A generalized family of embedded surfaces, parameterized continuously.
+\end{definition}
+
+\begin{definition}[Saturated set]\label{def:saturated}
+\lean{MinimalSurfaces.SaturatedSet}
+A saturated collection of generalized families.
+\end{definition}
+
+\begin{definition}[Min--max sequence]\label{def:minmax-seq}
+\lean{MinimalSurfaces.MinMaxSequence}
+A sequence of surfaces realizing the min--max process within a saturated set.
+\end{definition}
+
+\begin{definition}[Width $m_0(\Lambda)$]\label{def:m0}
+\lean{MinimalSurfaces.m0}
+The min--max width $m_0(\Lambda)$ associated with a saturated set $\Lambda$.
+\end{definition}
+
+\section{Convergence and Regularity}
+
+\begin{definition}[Surface varifold convergence]\label{def:surf-conv}
+\lean{MinimalSurfaces.surfaceConvergesToVarifold}
+Definition of convergence of a sequence of surfaces to a varifold.
+\end{definition}
+
+\begin{lemma}[Convergence regularity]\label{lem:conv-reg}
+\lean{MinimalSurfaces.convergence_regularity}
+If a min--max sequence converges in the varifold sense, then its limit contains
+a smooth embedded minimal surface.
+\uses{def:is-minimal, def:varifold-conv}
+\end{lemma}
+
+\section{Simon--Smith Theorem}
+
+\begin{theorem}[Simon--Smith]\label{thm:simon-smith}
+\lean{MinimalSurfaces.simon_smith}
+Let $M$ be a closed Riemannian $3$-manifold.  
+For any saturated set $\Lambda$ of generalized families of surfaces,
+there exists a min--max sequence obtained from $\Lambda$ and converging
+in the varifold sense to a smooth embedded minimal surface with area $m_0(\Lambda)$
+(multiplicity allowed).
+\uses{def:area, def:is-minimal, def:m0, def:varifold-conv, lem:conv-reg}
+\end{theorem}
+

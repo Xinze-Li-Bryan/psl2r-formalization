@@ -18,7 +18,40 @@ MinimalSurfaces/
 │   └── Basic.lean         - Min-max theory and main theorem
 └── Convergence/
     └── Basic.lean         - Convergence theory in varifold sense
+
+blueprint/
+├── src/                   - LaTeX source files for the blueprint
+├── web/                   - Generated HTML with interactive dependency graph
+└── lean_decls            - Lean declarations mapping
 ```
+
+## Blueprint Visualization
+
+The project now includes an interactive blueprint that visualizes the dependency graph of theorems and definitions.
+
+### Viewing the Blueprint
+
+Due to browser security restrictions, the blueprint must be served via HTTP:
+
+```bash
+# Quick view script (recommended)
+~/view-blueprint.sh
+
+# Or manually:
+cd blueprint/web
+python3 -m http.server 8000
+# Then open http://localhost:8000/index.html
+```
+
+### Blueprint Features
+
+- **Interactive dependency graph**: Shows relationships between theorems and definitions
+- **Progress tracking**: Color-coded nodes indicate formalization status
+- **LaTeX-Lean linking**: Click to navigate between mathematical statements and Lean code
+- **Legend**:
+  - Blue border: Statement ready to formalize
+  - Green border: Statement formalized
+  - Green background: Proof formalized
 
 ## Key Concepts to Formalize
 
@@ -31,6 +64,7 @@ MinimalSurfaces/
 - Saturated sets (`SaturatedSet`)
 - Min-max sequences (`MinMaxSequence`)
 - Basic theorem statement (`simon_smith`)
+- Blueprint dependency visualization
 
 ### 🚧 In Progress
 
@@ -73,6 +107,13 @@ MinimalSurfaces/
 # Build the project
 lake build MinimalSurfaces
 
+# Build documentation
+lake -Kenv=dev build MinimalSurfaces:docs
+
+# Generate blueprint
+cd blueprint
+leanblueprint web
+
 # Clean build
 lake clean
 lake build
@@ -99,6 +140,15 @@ cd The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4
 lake build
 ```
 
+1. View blueprint (optional):
+
+```bash
+cd blueprint
+leanblueprint web
+python3 -m http.server 8000 --directory web
+# Open http://localhost:8000 in browser
+```
+
 ## Contributing
 
 This is an open project and contributions are welcome!
@@ -116,11 +166,7 @@ This is an open project and contributions are welcome!
 - Implementing `sorry` placeholders
 - Adding documentation and comments
 - Creating examples
-- Setting up Blueprint visualization
-
-## Blueprint (Coming Soon)
-
-We plan to use [leanblueprint](https://github.com/PatrickMassot/leanblueprint) to visualize the dependency graph and track progress.
+- Extending the blueprint with more theorem dependencies
 
 ## References
 
@@ -152,10 +198,11 @@ This project is licensed under the Apache 2.0 License - see the LICENSE file for
 - [x] Project setup with Mathlib
 - [x] Basic structure definitions
 - [x] Theorem statement
+- [x] Blueprint visualization with dependency graph
 - [ ] Complete varifold theory
 - [ ] Implement min-max procedure
 - [ ] Prove main theorem
-- [ ] Set up Blueprint visualization
+- [ ] Full documentation
 
 ## Contact
 

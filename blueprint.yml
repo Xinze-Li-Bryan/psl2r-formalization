@@ -1,8 +1,9 @@
-homepage: https://github.com/YOUR_USERNAME/minimal-surfaces-lean
-title: 'Min-Max Construction of Minimal Surfaces'
-description: 'Formalization of the Colding-De Lellis paper on minimal surfaces in Lean 4'
+homepage: https://github.com/Xinze-Li-Bryan/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4
+title: 'The Min–Max Construction of Minimal Surfaces'
+description: 'Formalization of the Colding–De Lellis min–max minimal surface theory in Lean 4'
 pdf:
   filename: 'blueprint.pdf'
-  title: 'The Min-Max Construction of Minimal Surfaces: A Formal Development'
-  author: 'YOUR NAME'
+  title: 'The Min–Max Construction of Minimal Surfaces: A Formal Development'
+  author: 'Xinze Li (after Pitts, Simon–Smith, Colding–De Lellis)'
 dep_graph_root: 'MinimalSurfaces'
+decl_graph: true

@@ -1,0 +1,16 @@
+name = "docbuild"
+reservoir = false
+version = "0.1.0"
+packagesDir = "../.lake/packages"
+
+# 引用你的主项目（包名等于根 lakefile.toml 里的 name）
+[[require]]
+name = "minimal_surfaces"
+path = "../"
+
+# 引用 doc-gen4
+[[require]]
+scope = "leanprover"
+name = "doc-gen4"
+# 若你将来固定到某个 Lean v4.x，可把 main 换成 v4.x
+rev = "main"
