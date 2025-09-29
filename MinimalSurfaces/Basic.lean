@@ -2,39 +2,55 @@ import Mathlib.Analysis.Calculus.FDeriv.Basic
 import Mathlib.MeasureTheory.Measure.Hausdorff
 import Mathlib.Analysis.InnerProductSpace.Basic
 import Mathlib.Topology.MetricSpace.Basic
+import Mathlib.Topology.CompactOpen
 
 /-!
 # 极小曲面的 Min-Max 构造
-基于 Pitts (1981) 和 Simon-Smith 的工作 - 测试更新
-参考：De Lellis & Colding - The min-max construction of minimal surfaces
-arxiv:math/0303305
+基于 Colding-De Lellis (2003): The min-max construction of minimal surfaces
+参考：arxiv:math/0303305
 -/
 
 namespace MinimalSurfaces
 
-/-- 3维闭黎曼流形 -/
+open MeasureTheory
+open MeasureTheory.Measure
+
+/-- 3维闭黎曼流形（简化版本） -/
 class ClosedRiemannian3Manifold (M : Type*) extends
   MetricSpace M, CompactSpace M where
-  dim_three : ℕ  -- 简化：实际需要流形维度的正式定义
+  dim_three : Nat  -- 维度为3
+  smooth_structure : True  -- 简化：需要光滑结构
+  riemannian_metric : True  -- 简化：需要黎曼度量
 
 /-- 2维嵌入曲面 -/
 structure EmbeddedSurface (M : Type*) [ClosedRiemannian3Manifold M] where
+  /-- 曲面作为M的子集 -/
   carrier : Set M
-  is_embedded : Bool  -- 简化：需要正式的嵌入条件
+  /-- 是闭集 -/
+  is_closed : IsClosed carrier
+  /-- 是2维的（简化） -/
+  dim_two : True
+  /-- 是嵌入的（简化） -/
+  is_embedded : True
 
-/-- 曲面的面积泛函 -/
-noncomputable def area {M : Type*} [ClosedRiemannian3Manifold M]
-  (S : EmbeddedSurface M) : ℝ :=
-  sorry  -- 需要Hausdorff测度
+/-- 曲面的面积泛函（使用2维Hausdorff测度） -/
+noncomputable def area {M : Type*} [ClosedRiemannian3Manifold M] [MeasurableSpace M]
+  [BorelSpace M] (S : EmbeddedSurface M) : ℝ :=
+  ENNReal.toReal (hausdorffMeasure 2 S.carrier)
 
-/-- 极小曲面：平均曲率为零 -/
+/-- 平均曲率（简化定义） -/
+def meanCurvature {M : Type*} [ClosedRiemannian3Manifold M]
+  (_S : EmbeddedSurface M) (_x : M) : ℝ :=
+  0  -- 占位符实现
+
+/-- 极小曲面：平均曲率处处为零 -/
 def is_minimal {M : Type*} [ClosedRiemannian3Manifold M]
   (S : EmbeddedSurface M) : Prop :=
-  sorry  -- 需要定义平均曲率
+  ∀ x ∈ S.carrier, meanCurvature S x = 0
 
-/-- Pitts存在性定理 -/
-theorem pitts_existence {M : Type*} [ClosedRiemannian3Manifold M] :
-  ∃ S : EmbeddedSurface M, is_minimal S := by
+/-- Pitts-Simon-Smith存在性定理的主要陈述 -/
+theorem main_existence {M : Type*} [ClosedRiemannian3Manifold M] [MeasurableSpace M]
+  [BorelSpace M] : ∃ S : EmbeddedSurface M, is_minimal S ∧ area S > 0 := by
   sorry
 
 end MinimalSurfaces
