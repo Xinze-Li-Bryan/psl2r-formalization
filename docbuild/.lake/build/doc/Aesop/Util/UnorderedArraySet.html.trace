@@ -7,10 +7,10 @@
  "inputs":
  [["<collection>",
    [["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc/Batteries/Data/Array/Merge.html",
-     "13401362843070591369"]]],
+     "10334010312907502539"]]],
   ["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc-data/references.json",
    "11893762902049086281"],
   ["/Users/lixinze/minimal_surfaces_new/.lake/packages/doc-gen4/.lake/build/bin/doc-gen4",
-   "1643603471421576380"],
+   "7305278769530580005"],
   ["Aesop.Util.UnorderedArraySet:leanArts", "7676754807234134550"]],
- "depHash": "12001056194397261753"}
+ "depHash": "15925415392962491880"}

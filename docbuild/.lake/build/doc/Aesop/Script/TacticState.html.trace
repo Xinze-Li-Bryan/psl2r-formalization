@@ -7,12 +7,12 @@
  "inputs":
  [["<collection>",
    [["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc/Batteries/Lean/Meta/Basic.html",
-     "12804702320765804200"],
+     "3445561054315180293"],
     ["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc/Aesop/Script/GoalWithMVars.html",
      "9044392610768834228"]]],
   ["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc-data/references.json",
    "11893762902049086281"],
   ["/Users/lixinze/minimal_surfaces_new/.lake/packages/doc-gen4/.lake/build/bin/doc-gen4",
-   "1643603471421576380"],
+   "7305278769530580005"],
   ["Aesop.Script.TacticState:leanArts", "15059115603280066751"]],
- "depHash": "2156119526214156230"}
+ "depHash": "3397848605055228381"}

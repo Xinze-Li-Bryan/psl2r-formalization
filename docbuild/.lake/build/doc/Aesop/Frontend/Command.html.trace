@@ -11,7 +11,7 @@
     ["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc/Aesop/Stats/Report.html",
      "1308045350559259470"],
     ["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc/Batteries/Linter/UnreachableTactic.html",
-     "2035067181749397450"],
+     "14952119173046685948"],
     ["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc/Aesop/Frontend/Extension.html",
      "10362848930060927625"],
     ["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc/Aesop/Frontend/RuleExpr.html",
@@ -19,6 +19,6 @@
   ["/Users/lixinze/minimal_surfaces_new/docbuild/.lake/build/doc-data/references.json",
    "11893762902049086281"],
   ["/Users/lixinze/minimal_surfaces_new/.lake/packages/doc-gen4/.lake/build/bin/doc-gen4",
-   "1643603471421576380"],
+   "7305278769530580005"],
   ["Aesop.Frontend.Command:leanArts", "15844883252306942187"]],
- "depHash": "15591199245160620946"}
+ "depHash": "11805231384709113281"}

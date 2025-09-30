@@ -7,6 +7,6 @@
   {"message": "stdout:\nINFO: reference page disabled", "level": "info"}],
  "inputs":
  [["/Users/lixinze/minimal_surfaces_new/.lake/packages/doc-gen4/.lake/build/bin/doc-gen4",
-   "1643603471421576380"],
+   "7305278769530580005"],
   ["<nil>", "1723"]],
- "depHash": "15090855950938827254"}
+ "depHash": "16346650538191348165"}

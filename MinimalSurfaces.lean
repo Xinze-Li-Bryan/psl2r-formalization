@@ -1,4 +1,5 @@
 import MinimalSurfaces.Basic
+import MinimalSurfaces.MainTheorem
 import MinimalSurfaces.Area
 import MinimalSurfaces.Isotopy
 import MinimalSurfaces.Varifolds.Basic

@@ -7,4 +7,5 @@ pdf:
   author: 'Xinze Li (after Pitts, Simon–Smith, Colding–De Lellis)'
 dep_graph_root: 'MinimalSurfaces'
 decl_graph: true
-dochome: 'https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/'
+dochome: 'https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/'
+docfind: 'https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/find/'

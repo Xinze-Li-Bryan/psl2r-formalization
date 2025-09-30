@@ -1,1 +1,1 @@
-{"declarations":[],"imports":["Init","MinimalSurfaces.Basic","MinimalSurfaces.Varifolds.Basic","MinimalSurfaces.MinMax.Basic","MinimalSurfaces.Convergence.Basic"],"instances":[],"name":"MinimalSurfaces"}
+{"declarations":[],"imports":["Init","MinimalSurfaces.Basic","MinimalSurfaces.MainTheorem","MinimalSurfaces.Area","MinimalSurfaces.Isotopy","MinimalSurfaces.Varifolds.Basic","MinimalSurfaces.MinMax.Basic","MinimalSurfaces.Convergence.Basic"],"instances":[],"name":"MinimalSurfaces"}
