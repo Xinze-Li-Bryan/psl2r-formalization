@@ -1,5 +1,9 @@
 # The Min-Max Construction of Minimal Surfaces in Lean4
 
+**[View Blueprint](https://min-max-construction.zeabur.app/)** - Interactive dependency graph
+
+A formalization of the Colding-De Lellis paper "The min-max construction of minimal surfaces" in Lean 4.
+
 ## Main Goal
 
 Formalize **Theorem 1.6 (Simon-Smith)**:
@@ -47,29 +51,76 @@ blueprint/
 
 The project includes an interactive blueprint that visualizes the dependency graph of theorems and definitions.
 
-### Viewing the Blueprint
+### Online Version
 
-🌐 **Online**: [min-max-construction.zeabur.app](https://min-max-construction.zeabur.app/)
+**[min-max-construction.zeabur.app](https://min-max-construction.zeabur.app/)** - Auto-updates on push to main
 
-- Automatically updates on push to main branch
-- Shows real-time formalization progress
+### Local Development
 
-🖥️ **Local Development**:
+#### View Blueprint Locally
 
 ```bash
+# Start local server
 cd ~/minimal_surfaces_new
 python3 -m http.server 8001
-# Open http://localhost:8001 in browser
+
+# In browser, visit:
+# http://localhost:8001
 ```
 
-### Blueprint Features
+If port is busy:
 
-- **Interactive dependency graph**: Click nodes to see definitions
-- **Color coding**:
-  - 🔵 Blue border: Statement ready to formalize
-  - 🟢 Green border: Statement formalized in Lean
-  - ✅ Green background: Proof completed
-- **LaTeX-Lean linking**: Direct navigation between math and code
+```bash
+# Kill existing process
+kill $(lsof -t -i:8001)
+
+# Or use different port
+python3 -m http.server 8002
+```
+
+#### Update Blueprint Content
+
+```bash
+# 1. Edit LaTeX source files
+vim blueprint/src/setup.tex    # Edit definitions, theorems, etc.
+
+# 2. Regenerate HTML from LaTeX
+cd blueprint
+leanblueprint web
+cd ..
+
+# 3. Copy to root for deployment (Zeabur reads from root)
+cp -r blueprint/web/* .
+
+# 4. View changes locally
+python3 -m http.server 8001
+```
+
+### Deployment
+
+#### Automatic Deployment
+
+```bash
+# Use the update script (generates + commits + pushes)
+~/update-blueprint.sh
+
+# Zeabur will auto-deploy within 1-2 minutes
+```
+
+#### Manual Deployment
+
+```bash
+# 1. Generate blueprint
+cd blueprint && leanblueprint web && cd ..
+
+# 2. Copy to root directory
+cp -r blueprint/web/* .
+
+# 3. Commit and push
+git add *.html js styles declarations *.svg
+git commit -m "Update blueprint"
+git push origin main
+```
 
 ## Key Formalized Structures
 
@@ -110,30 +161,66 @@ theorem simon_smith (Λ : SaturatedSet M) :
 
 ## Building & Development
 
-### Quick Start
+### Build Lean Project
 
 ```bash
-# Build the project
+# Build your Lean code
 lake build MinimalSurfaces
 
-# Update blueprint and deploy
-~/update-blueprint.sh
-
-# View local changes
-python3 -m http.server 8001
+# Build everything (if needed)
+lake build
 ```
 
-### Manual Blueprint Update
+### Local Blueprint Development
+
+#### Quick Local Preview
 
 ```bash
-cd blueprint
-leanblueprint web
-cd ..
-cp -r blueprint/web/* .
-git add *.html js styles declarations *.svg
-git commit -m "Update blueprint"
-git push origin main
+# After editing LaTeX files, regenerate and view locally
+cd blueprint && leanblueprint web && cd ..
+python3 -m http.server 8001
+# Visit http://localhost:8001/blueprint/web/
 ```
+
+#### Full Update Workflow
+
+```bash
+# 1. Edit LaTeX source
+vim blueprint/src/setup.tex
+
+# 2. Regenerate HTML
+cd blueprint && leanblueprint web && cd ..
+
+# 3. Copy to root (for deployment)
+cp -r blueprint/web/* .
+
+# 4. View locally
+python3 -m http.server 8001
+# Visit http://localhost:8001
+```
+
+### Deploy to Production
+
+```bash
+# Use the automated script
+~/update-blueprint.sh
+
+# This script does:
+# 1. Generates blueprint (leanblueprint web)
+# 2. Copies files to root directory
+# 3. Commits with timestamp
+# 4. Pushes to GitHub
+# 5. Zeabur auto-deploys in 1-2 minutes
+```
+
+### Blueprint Features
+
+- **Interactive dependency graph**: Click nodes to see definitions
+- **Color coding**:
+  - Blue border: Statement ready to formalize
+  - Green border: Statement formalized in Lean
+  - Green background: Proof completed
+- **LaTeX-Lean linking**: Direct navigation between math and code
 
 ## TODO List
 
