@@ -19,7 +19,7 @@
 \dochome{https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs}
 
 \title{The Min-Max Construction of Minimal Surfaces}
-\author{Colding \& De Lellis (2003)\\[0.3em]\small{Formalized in Lean 4 by Xinze Li}}
+%\author{Colding \\author{Xinze Li \\[0.5em] \small{based on the work of Colding--de Lellis}} De Lellis (2003)\\[0.3em]\small{Formalized in Lean 4 by Xinze Li}}
 
 \begin{document}
 \maketitle
