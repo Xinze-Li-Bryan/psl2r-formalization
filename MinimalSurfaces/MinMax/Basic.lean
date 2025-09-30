@@ -45,14 +45,3 @@ structure MinMaxSequence (Λ : SaturatedSet M) where
     MinimizingSequence Λ fam_seq ∧
     ∀ n, surfaces n = ⟨(fam_seq n).surface (parameters n), sorry, trivial, trivial⟩  -- 4个字段
   area_converges : Filter.Tendsto (fun n => area (surfaces n)) Filter.atTop (𝓝 (m0 Λ))
-
-/-- Simon-Smith定理 (Theorem 1.6) -/
-theorem simon_smith (Λ : SaturatedSet M) :
-  ∃ (seq : MinMaxSequence Λ) (S : EmbeddedSurface M),
-    is_minimal S ∧
-    area S = m0 Λ ∧
-    ∃ (V : IntegerVarifold 2 3 M),
-      convergesInVarifoldSense (fun n => sorry) V.toVarifold := by
-  sorry
-
-end MinimalSurfaces

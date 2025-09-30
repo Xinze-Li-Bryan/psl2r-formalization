@@ -74,7 +74,7 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">9</span><span class="definition_thmtitle">Almost minimizing</span></div>
+      <span class="definition_thmlabel">12</span><span class="definition_thmtitle">Almost minimizing</span></div>
     <div class="thm_thmcontent"><p> A surface \(\Sigma \) is \(\varepsilon \)-a.m. in \(U\) if there is no isotopy supported in \(U\) which keeps area within \(\varepsilon /8\) along the path and decreases the final area by at least \(\varepsilon \).  </p>
 </div>
 
@@ -82,6 +82,43 @@
     
     
   
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def:continuous-family_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def:continuous-family" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">2</span><span class="definition_thmtitle">Continuous Family</span></div>
+    <div class="thm_thmcontent"><p>  A family \(\{ \Sigma _t\} _{t \in [0,1]}\) of surfaces of \(M\) is said to be <em>continuous</em> if: </p>
+<ul class="itemize">
+  <li><p>\(\mathcal{H}^2(\Sigma _t)\) is a continuous function of \(t\); </p>
+</li>
+  <li><p>\(\Sigma _t \to \Sigma _{t_0}\) in the Hausdorff topology whenever \(t \to t_0\). </p>
+</li>
+</ul>
+
+</div>
+
+    <a class="latex_link" href="sect0002.html#def:continuous-family">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.ContinuousFamily">Lean</a>
     
     
   
@@ -104,14 +141,53 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">1</span><span class="definition_thmtitle">Generalized family</span></div>
+      <span class="definition_thmlabel">3</span><span class="definition_thmtitle">Generalized Family of Surfaces</span></div>
+    <div class="thm_thmcontent"><p>  A family \(\{ \Sigma _t\} _{t \in [0,1]}\) of subsets of \(M\) is said to be a <em>generalized family of surfaces</em> if there are a finite subset \(T\) of \([0, 1]\) and a finite set of points \(P\) in \(M\) such that: </p>
+<ul class="itemize">
+  <li><p>Conditions (c1) and (c2) from Definition&#160;<a href="sect0002.html#def:continuous-family">2</a> hold; </p>
+</li>
+  <li><p>\(\Sigma _t\) is a surface for every \(t \notin T\); </p>
+</li>
+  <li><p>For \(t \in T\), \(\Sigma _t\) is a surface in \(M \setminus P\). </p>
+</li>
+</ul>
+
+</div>
+
+    <a class="latex_link" href="sect0002.html#def:gen-family">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.GeneralizedFamilyOfSurfaces">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def:gen-family_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def:gen-family" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">4</span><span class="definition_thmtitle">Generalized family</span></div>
     <div class="thm_thmcontent"><p>  A family \(\{ \Sigma _t\} _{t\in [0,1]}\) with Hausdorff-continuous area and Hausdorff convergence in \(t\), allowing finitely many parameter values with point singularities.  </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:gen-family">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.GeneralizedFamilyOfSurfaces">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.GeneralizedFamilyOfSurfaces">Lean</a>
     
     
   
@@ -134,14 +210,14 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">6</span><span class="definition_thmtitle">Integer varifold</span></div>
+      <span class="definition_thmlabel">9</span><span class="definition_thmtitle">Integer varifold</span></div>
     <div class="thm_thmcontent"><p>  An integer rectifiable varifold with multiplicity.  </p>
 </div>
 
     <a class="latex_link" href="sect0004.html#def:int-varifold">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.IntegerVarifold">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.IntegerVarifold">Lean</a>
     
     
   
@@ -164,14 +240,14 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">3</span><span class="definition_thmtitle">Width</span></div>
+      <span class="definition_thmlabel">6</span><span class="definition_thmtitle">Width</span></div>
     <div class="thm_thmcontent"><p>  For a saturated set \(\Lambda \), define \(m_0(\Lambda ) \coloneqq \inf _{\{ \Sigma _t\} \in \Lambda } \max _{t\in [0,1]} \mathcal H^2(\Sigma _t)\).  </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:m0">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.m0">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.m0">Lean</a>
     
     
   
@@ -194,14 +270,14 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">7</span><span class="definition_thmtitle">Mass</span></div>
+      <span class="definition_thmlabel">10</span><span class="definition_thmtitle">Mass</span></div>
     <div class="thm_thmcontent"><p>  The mass (area) of a varifold.  </p>
 </div>
 
     <a class="latex_link" href="sect0004.html#def:mass">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.mass">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.mass">Lean</a>
     
     
   
@@ -224,14 +300,14 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">4</span><span class="definition_thmtitle">Min-max sequence</span></div>
+      <span class="definition_thmlabel">7</span><span class="definition_thmtitle">Min-max sequence</span></div>
     <div class="thm_thmcontent"><p>  A sequence of surfaces from a minimizing family converging to the width.  </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:minmax-sequence">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.MinMaxSequence">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.MinMaxSequence">Lean</a>
     
     
   
@@ -254,14 +330,14 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">2</span><span class="definition_thmtitle">Saturated set</span></div>
+      <span class="definition_thmlabel">5</span><span class="definition_thmtitle">Saturated set</span></div>
     <div class="thm_thmcontent"><p>  Closed under time-dependent ambient diffeomorphisms of \(M\).  </p>
 </div>
 
     <a class="latex_link" href="sect0003.html#def:saturated">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.SaturatedSet">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.SaturatedSet">Lean</a>
     
     
   
@@ -284,14 +360,14 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">5</span><span class="definition_thmtitle">Varifold</span></div>
+      <span class="definition_thmlabel">8</span><span class="definition_thmtitle">Varifold</span></div>
     <div class="thm_thmcontent"><p>  A finite nonnegative measure on the Grassmannian bundle of unoriented \(2\)-planes over \(M\).  </p>
 </div>
 
     <a class="latex_link" href="sect0004.html#def:varifold">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.Varifold">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.Varifold">Lean</a>
     
     
   
@@ -314,14 +390,14 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">8</span><span class="definition_thmtitle">Varifold convergence</span></div>
+      <span class="definition_thmlabel">11</span><span class="definition_thmtitle">Varifold convergence</span></div>
     <div class="thm_thmcontent"><p>  Weak convergence on the Grassmann bundle.  </p>
 </div>
 
     <a class="latex_link" href="sect0004.html#def:varifold-conv">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.convergesInVarifoldSense">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.convergesInVarifoldSense">Lean</a>
     
     
   
@@ -344,14 +420,44 @@
       <span class="lemma_thmcaption">
       Lemma
       </span>
-      <span class="lemma_thmlabel">10</span><span class="lemma_thmtitle">Convergence regularity</span></div>
+      <span class="lemma_thmlabel">13</span><span class="lemma_thmtitle">Convergence regularity</span></div>
     <div class="thm_thmcontent"><p>  If a min–max sequence converges in the varifold sense, its limit contains a smooth embedded minimal surface.  </p>
 </div>
 
     <a class="latex_link" href="sect0006.html#lem:conv-reg">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.convergence_regularity">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.convergence_regularity">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm:main_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm:main" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">1</span><span class="theorem_thmtitle">Simon–Smith, Colding–De Lellis</span></div>
+    <div class="thm_thmcontent"><p>  For any saturated set of generalized families of surfaces \(\Lambda \), there exists a min–max sequence obtained from \(\Lambda \) converging in the varifold sense to a smooth embedded minimal surface of area \(m_0(\Lambda )\) (multiplicity allowed).  </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm:main">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.simon_smith">Lean</a>
     
     
   
@@ -374,14 +480,14 @@
       <span class="theorem_thmcaption">
       Theorem
       </span>
-      <span class="theorem_thmlabel">11</span><span class="theorem_thmtitle">Simon–Smith</span></div>
+      <span class="theorem_thmlabel">14</span><span class="theorem_thmtitle">Simon–Smith</span></div>
     <div class="thm_thmcontent"><p>  Let \(M\) be a closed Riemannian \(3\)-manifold. For any saturated set \(\Lambda \) of generalized families of surfaces, there exists a min–max sequence obtained from \(\Lambda \) and converging in the varifold sense to a smooth embedded minimal surface with area \(m_0(\Lambda )\) (multiplicity allowed).  </p>
 </div>
 
     <a class="latex_link" href="sect0008.html#thm:simon-smith">LaTeX</a>
     
     
-  <a class="lean_link lean_decl" href="https://Xinze-Li-Bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/docs/find/#doc/MinimalSurfaces.simon_smith">Lean</a>
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/MinimalSurfaces.simon_smith">Lean</a>
     
     
   
@@ -409,7 +515,7 @@ graphContainer.graphviz({useWorker: true})
     .width(width)
     .height(height)
     .fit(true)
-    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"def:gen-family"	[color=green,		fillcolor="#B0ECA3",		label="gen-family",		shape=box,		style=filled];	"def:m0"	[color=green,		fillcolor="#B0ECA3",		label=m0,		shape=box,		style=filled];	"def:gen-family" -> "def:m0"	[style=dashed];	"def:minmax-sequence"	[color=green,		fillcolor="#B0ECA3",		label="minmax-sequence",		shape=box,		style=filled];	"def:m0" -> "def:minmax-sequence"	[style=dashed];	"thm:simon-smith"	[label="simon-smith",		shape=ellipse];	"def:m0" -> "thm:simon-smith"	[style=dashed];	"def:saturated"	[color=green,		fillcolor="#B0ECA3",		label=saturated,		shape=box,		style=filled];	"def:saturated" -> "def:m0"	[style=dashed];	"def:mass"	[color=blue,		fillcolor="#A3D6FF",		label=mass,		shape=box,		style=filled];	"def:varifold"	[color=blue,		fillcolor="#A3D6FF",		label=varifold,		shape=box,		style=filled];	"def:int-varifold"	[color=blue,		fillcolor="#A3D6FF",		label="int-varifold",		shape=box,		style=filled];	"def:varifold-conv"	[color=blue,		fillcolor="#A3D6FF",		label="varifold-conv",		shape=box,		style=filled];	"lem:conv-reg"	[label="conv-reg",		shape=ellipse];	"def:varifold-conv" -> "lem:conv-reg"	[style=dashed];	"lem:conv-reg" -> "thm:simon-smith"	[style=dashed];	"def:am"	[color=blue,		fillcolor="#A3D6FF",		label=am,		shape=box,		style=filled];}`)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"def:continuous-family"	[color=blue,		fillcolor="#A3D6FF",		label="continuous-family",		shape=box,		style=filled];	"def:gen-family"	[color=green,		fillcolor="#B0ECA3",		label="gen-family",		shape=box,		style=filled];	"def:continuous-family" -> "def:gen-family"	[style=dashed];	"def:m0"	[color=green,		fillcolor="#B0ECA3",		label=m0,		shape=box,		style=filled];	"def:gen-family" -> "def:m0"	[style=dashed];	"def:minmax-sequence"	[color=green,		fillcolor="#B0ECA3",		label="minmax-sequence",		shape=box,		style=filled];	"def:m0" -> "def:minmax-sequence"	[style=dashed];	"thm:main"	[color=blue,		label=main,		shape=ellipse];	"def:m0" -> "thm:main"	[style=dashed];	"thm:simon-smith"	[label="simon-smith",		shape=ellipse];	"def:m0" -> "thm:simon-smith"	[style=dashed];	"def:saturated"	[color=green,		fillcolor="#B0ECA3",		label=saturated,		shape=box,		style=filled];	"def:saturated" -> "def:m0"	[style=dashed];	"def:varifold-conv"	[color=blue,		fillcolor="#A3D6FF",		label="varifold-conv",		shape=box,		style=filled];	"lem:conv-reg"	[label="conv-reg",		shape=ellipse];	"def:varifold-conv" -> "lem:conv-reg"	[style=dashed];	"lem:conv-reg" -> "thm:simon-smith"	[style=dashed];	"def:varifold"	[color=blue,		fillcolor="#A3D6FF",		label=varifold,		shape=box,		style=filled];	"def:int-varifold"	[color=blue,		fillcolor="#A3D6FF",		label="int-varifold",		shape=box,		style=filled];	"def:mass"	[color=blue,		fillcolor="#A3D6FF",		label=mass,		shape=box,		style=filled];	"def:am"	[color=blue,		fillcolor="#A3D6FF",		label=am,		shape=box,		style=filled];}`)
     .on("end", interactive);
 
 latexLabelEscaper = function(label) {

@@ -1,0 +1,27 @@
+{"synthetic": false,
+ "outputs": null,
+ "log":
+ [{"message": "Documentation indexing", "level": "info"},
+  {"message":
+   ".> /Users/lixinze/minimal_surfaces_new/.lake/packages/doc-gen4/.lake/build/bin/doc-gen4 index --build /Users/lixinze/minimal_surfaces_new/.lake/build",
+   "level": "trace"}],
+ "inputs":
+ [["/Users/lixinze/minimal_surfaces_new/.lake/packages/doc-gen4/.lake/build/bin/doc-gen4",
+   "7305278769530580005"],
+  ["<nil>", "6748611221465965550"],
+  ["<collection>",
+   [["/Users/lixinze/minimal_surfaces_new/.lake/build/doc/MinimalSurfaces/Basic.html",
+     "9023713988627659258"],
+    ["/Users/lixinze/minimal_surfaces_new/.lake/build/doc/MinimalSurfaces/Area.html",
+     "17764290268632446720"],
+    ["/Users/lixinze/minimal_surfaces_new/.lake/build/doc/MinimalSurfaces/Isotopy.html",
+     "10820202768748058562"],
+    ["/Users/lixinze/minimal_surfaces_new/.lake/build/doc/MinimalSurfaces/Varifolds/Basic.html",
+     "15387433897376389963"],
+    ["/Users/lixinze/minimal_surfaces_new/.lake/build/doc/MinimalSurfaces/MinMax/Basic.html",
+     "13894629735635047679"],
+    ["/Users/lixinze/minimal_surfaces_new/.lake/build/doc/MinimalSurfaces/Convergence/Basic.html",
+     "6593766130104701231"],
+    ["/Users/lixinze/minimal_surfaces_new/.lake/build/doc/MinimalSurfaces.html",
+     "7039116801352720110"]]]],
+ "depHash": "2364944420579836776"}
