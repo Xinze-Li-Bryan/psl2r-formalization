@@ -1,0 +1,57 @@
+\chapter{Main Results}
+
+\section{The Main Equivalence Theorem}
+
+The central result of this formalization is:
+
+\begin{theorem}[Main Equivalence]
+\label{thm:main_equivalence}
+\lean{PSL2R.main_equivalence}
+\uses{def:PSL, def:unit_tangent_bundle, def:isom_plus}
+There exist natural isomorphisms:
+\begin{align*}
+T^1\mathbb{H} &\cong \mathrm{PSL}(2,\mathbb{R}) \\
+\mathrm{PSL}(2,\mathbb{R}) &\cong \mathrm{Isom}^+(\mathbb{H}^2)
+\end{align*}
+These isomorphisms are compatible with the natural topological and group structures.
+\end{theorem}
+
+The proof proceeds through three main steps:
+
+\section{PSL(2,ℝ) acts by isometries}
+
+\begin{theorem}
+\label{thm:psl2r_to_isom}
+\lean{PSL2R.toIsometry}
+\uses{def:PSL, def:moebius_action, def:isom_plus}
+Every element of $\mathrm{PSL}(2,\mathbb{R})$ acts as an orientation-preserving isometry of $\mathbb{H}$ via Möbius transformations.
+\end{theorem}
+
+\begin{theorem}
+\label{thm:psl2r_isom_bijection}
+\uses{thm:psl2r_to_isom}
+The map $\mathrm{PSL}(2,\mathbb{R}) \to \mathrm{Isom}^+(\mathbb{H}^2)$ is a group isomorphism.
+\end{theorem}
+
+\section{Connection to the unit tangent bundle}
+
+\begin{theorem}
+\label{thm:t1h_to_psl2r}
+\lean{PSL2R.unitTangentEquiv}
+\uses{def:unit_tangent_bundle, def:PSL}
+There exists a natural homeomorphism
+\[ T^1\mathbb{H} \cong \mathrm{PSL}(2,\mathbb{R}). \]
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Given a point $(z, v) \in T^1\mathbb{H}$, we associate the unique element of $\mathrm{PSL}(2,\mathbb{R})$ that maps the base point $(i, \partial/\partial x)$ to $(z, v)$. This gives a bijection that can be shown to be continuous in both directions.
+\end{proof}
+
+\section{Future Extensions}
+
+Potential extensions of this formalization include:
+\begin{itemize}
+\item Fuchsian groups and quotient surfaces
+\item Teichmüller theory
+\item The three-dimensional case: $\mathrm{PSL}(2,\mathbb{C})$ and hyperbolic 3-space
+\end{itemize}

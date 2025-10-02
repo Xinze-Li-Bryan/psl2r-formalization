@@ -1,4 +1,4 @@
-name = "minimal_surfaces"
+name = "psl2r_formalization"
 version = "0.1.0"
 
 [[require]]
@@ -15,7 +15,7 @@ git = "https://github.com/leanprover/doc-gen4"
 rev = "main"
 
 [[lean_lib]]
-name = "MinimalSurfaces"
+name = "PSL2R"
 
 [tasks.genDocs]
 exe = ["doc-gen4"]

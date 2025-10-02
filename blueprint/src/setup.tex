@@ -1,30 +1,19 @@
-\chapter{Min--max setup: families, saturation, and width}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{blueprint}
 
-\begin{definition}[Generalized family]\label{def:gen-family}
-\lean{MinimalSurfaces.GeneralizedFamilyOfSurfaces}
-\leanok
-A family $\{\Sigma_t\}_{t\in[0,1]}$ with Hausdorff-continuous area and Hausdorff convergence in $t$, allowing finitely many parameter values with point singularities.
-\uses{}
-\end{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
 
-\begin{definition}[Saturated set]\label{def:saturated}
-\lean{MinimalSurfaces.SaturatedSet}
-\leanok
-Closed under time-dependent ambient diffeomorphisms of $M$.
-\uses{}
-\end{definition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
 
-\begin{definition}[Width]\label{def:m0}
-\lean{MinimalSurfaces.m0}
-\leanok
-For a saturated set $\Lambda$, define
-$m_0(\Lambda) \coloneqq \inf_{\{\Sigma_t\}\in \Lambda} \max_{t\in[0,1]} \mathcal H^2(\Sigma_t)$.
-\uses{def:saturated, def:gen-family}
-\end{definition}
-
-\begin{definition}[Min-max sequence]\label{def:minmax-sequence}
-\lean{MinimalSurfaces.MinMaxSequence}
-\leanok
-A sequence of surfaces from a minimizing family converging to the width.
-\uses{def:saturated, def:m0}
-\end{definition}
+% Lean integration
+\newcommand{\lean}[1]{\texttt{#1}}
+\newcommand{\leanok}{\textcolor{green}{✓}}
+\newcommand{\uses}[1]{\textit{Uses: #1}}

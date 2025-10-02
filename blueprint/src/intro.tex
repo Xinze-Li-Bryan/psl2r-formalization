@@ -1,37 +1,41 @@
 \chapter{Introduction}
 
-We formalize the Simon--Smith min--max construction of minimal surfaces in closed $3$-manifolds.
+This project formalizes a fundamental result in hyperbolic geometry: the equivalence between three important mathematical objects.
 
-\begin{theorem}[Simon--Smith, Colding--De Lellis]\label{thm:main}
-\lean{MinimalSurfaces.simon_smith}
-For any saturated set of generalized families of surfaces $\Lambda$, there exists a min--max sequence obtained from $\Lambda$ converging in the varifold sense to a smooth embedded minimal surface of area $m_0(\Lambda)$ (multiplicity allowed).
-\uses{def:saturated, def:gen-family, def:m0}
-\end{theorem}
+\section{Main Goal}
 
-This theorem represents the culmination of the min--max theory for minimal surfaces.
-
-\section{The min--max construction in 3--manifolds}
-
-In the following, $M$ denotes a closed 3-dimensional Riemannian manifold, $\mathrm{Diff}_0$ is the identity component of the diffeomorphism group of $M$, and $\mathrm{Is}$ is the set of smooth isotopies.
-
-\begin{definition}[Continuous Family]\label{def:continuous-family}
-\lean{MinimalSurfaces.ContinuousFamily}
-A family $\{\Sigma_t\}_{t \in [0,1]}$ of surfaces of $M$ is said to be \emph{continuous} if:
+We aim to prove in Lean 4 that the following three objects are naturally isomorphic:
 \begin{itemize}
-\item[(c1)] $\mathcal{H}^2(\Sigma_t)$ is a continuous function of $t$;
-\item[(c2)] $\Sigma_t \to \Sigma_{t_0}$ in the Hausdorff topology whenever $t \to t_0$.
+\item $T^1\mathbb{H}$: The unit tangent bundle of the hyperbolic plane
+\item $\mathrm{PSL}(2,\mathbb{R})$: The projective special linear group
+\item $\mathrm{Isom}^+(\mathbb{H}^2)$: The orientation-preserving isometry group of the hyperbolic plane
 \end{itemize}
-\uses{}
-\end{definition}
 
-\begin{definition}[Generalized Family of Surfaces]\label{def:gen-family}
-\lean{MinimalSurfaces.GeneralizedFamilyOfSurfaces}
-\leanok
-A family $\{\Sigma_t\}_{t \in [0,1]}$ of subsets of $M$ is said to be a \emph{generalized family of surfaces} if there are a finite subset $T$ of $[0, 1]$ and a finite set of points $P$ in $M$ such that:
+\section{Mathematical Background}
+
+The hyperbolic plane $\mathbb{H}$ can be modeled as the upper half-plane
+\[ \mathbb{H} = \{z \in \mathbb{C} : \mathrm{Im}(z) > 0\} \]
+equipped with the hyperbolic metric
+\[ ds^2 = \frac{dx^2 + dy^2}{y^2}. \]
+
+The projective special linear group $\mathrm{PSL}(2,\mathbb{R})$ is defined as the quotient
+\[ \mathrm{PSL}(2,\mathbb{R}) = \mathrm{SL}(2,\mathbb{R}) / \{\pm I\}. \]
+
+Elements of $\mathrm{PSL}(2,\mathbb{R})$ act on $\mathbb{H}$ by Möbius transformations:
+\[ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \cdot z = \frac{az + b}{cz + d}. \]
+
+\section{Formalization Status}
+
+\subsection{Available in Mathlib}
 \begin{itemize}
-\item[(1)] Conditions (c1) and (c2) from Definition~\ref{def:continuous-family} hold;
-\item[(2)] $\Sigma_t$ is a surface for every $t \notin T$;
-\item[(3)] For $t \in T$, $\Sigma_t$ is a surface in $M \setminus P$.
+\item Upper half-plane model and hyperbolic metric (\texttt{Mathlib.Analysis.Complex.UpperHalfPlane.Metric})
+\item Special linear group $\mathrm{SL}(2,\mathbb{R})$ (\texttt{Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup})
+\item Isometry definitions (\texttt{Mathlib.Topology.MetricSpace.Isometry})
 \end{itemize}
-\uses{def:continuous-family}
-\end{definition}
+
+\subsection{To Be Formalized}
+\begin{itemize}
+\item Definition of $\mathrm{PSL}(2,\mathbb{R})$ as a quotient group
+\item Unit tangent bundle $T^1\mathbb{H}$
+\item The isomorphisms between the three objects
+\end{itemize}

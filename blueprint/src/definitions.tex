@@ -1,0 +1,57 @@
+\chapter{Definitions}
+
+\section{The Projective Special Linear Group}
+
+\begin{definition}
+\label{def:PSL}
+\lean{PSL}
+\leanok
+The \emph{projective special linear group} $\mathrm{PSL}(n,R)$ is defined as the quotient
+\[ \mathrm{PSL}(n,R) := \mathrm{SL}(n,R) / Z(\mathrm{SL}(n,R)) \]
+where $Z(\mathrm{SL}(n,R))$ denotes the center of $\mathrm{SL}(n,R)$.
+\end{definition}
+
+\begin{lemma}
+\label{lem:center_sl2r}
+\lean{PSL2R.center_eq_scalar}
+\uses{def:PSL}
+The center of $\mathrm{SL}(2,\mathbb{R})$ is $\{\pm I\}$.
+\end{lemma}
+
+\section{Möbius Transformations}
+
+\begin{definition}
+\label{def:moebius_action}
+\lean{PSL2R.moebiusAction}
+\leanok
+\uses{def:PSL}
+Elements of $\mathrm{PSL}(2,\mathbb{R})$ act on the upper half-plane $\mathbb{H}$ by Möbius transformations:
+\[ g \cdot z = \frac{az + b}{cz + d} \]
+where $g$ is represented by the matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \mathrm{SL}(2,\mathbb{R})$.
+\end{definition}
+
+\section{The Unit Tangent Bundle}
+
+\begin{definition}
+\label{def:unit_tangent_bundle}
+\lean{T1H}
+\leanok
+The \emph{unit tangent bundle} $T^1\mathbb{H}$ of the hyperbolic plane consists of pairs $(z, v)$ where:
+\begin{itemize}
+\item $z \in \mathbb{H}$ is a point in the upper half-plane
+\item $v$ is a unit tangent vector at $z$ with respect to the hyperbolic metric
+\end{itemize}
+\end{definition}
+
+\section{The Isometry Group}
+
+\begin{definition}
+\label{def:isom_plus}
+\lean{IsomPlusH}
+\leanok
+The \emph{orientation-preserving isometry group} $\mathrm{Isom}^+(\mathbb{H}^2)$ is the group of bijective maps $f: \mathbb{H} \to \mathbb{H}$ that:
+\begin{itemize}
+\item Preserve the hyperbolic distance
+\item Preserve orientation
+\end{itemize}
+\end{definition}

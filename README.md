@@ -1,326 +1,102 @@
-# The Min-Max Construction of Minimal Surfaces in Lean4
+# Formalizing PSL(2,ℝ) and Hyperbolic Geometry in Lean 4
 
-**[View Blueprint](https://min-max-construction.zeabur.app/)** - Interactive dependency graph
+This project formalizes the fundamental equivalence in hyperbolic geometry:
 
-A formalization of the Colding-De Lellis paper "The min-max construction of minimal surfaces" in Lean 4.
+$$T^1\mathbb{H} \cong \mathrm{PSL}(2,\mathbb{R}) \cong \mathrm{Isom}^+(\mathbb{H}^2)$$
 
-## Main Goal
+where:
+- $T^1\mathbb{H}$ is the unit tangent bundle of the hyperbolic plane
+- $\mathrm{PSL}(2,\mathbb{R}) = \mathrm{SL}(2,\mathbb{R})/\{\pm I\}$ is the projective special linear group
+- $\mathrm{Isom}^+(\mathbb{H}^2)$ is the group of orientation-preserving isometries of the hyperbolic plane
 
-Formalize **Theorem 1.6 (Simon-Smith)**:
-> Let M be a closed 3-manifold with a Riemannian metric. For any saturated set of generalized families of surfaces Λ, there is a min–max sequence obtained from Λ and converging in the sense of varifolds to a smooth embedded minimal surface with area m₀(Λ) (multiplicity is allowed).
+## Project Status
+
+🚧 **Under Development** 🚧
+
+This is an active formalization project building on Lean 4 and Mathlib4.
+
+## What's Already in Mathlib4
+
+Mathlib4 provides strong foundations for this project:
+
+- **Upper Half-Plane Model** (`Mathlib.Analysis.Complex.UpperHalfPlane.*`)
+  - Definition of $\mathbb{H} = \{z \in \mathbb{C} \mid \mathrm{Im}(z) > 0\}$
+  - Poincaré (hyperbolic) metric
+  - Complete metric space structure
+  
+- **Special Linear Group** (`Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup`)
+  - Definition of $\mathrm{SL}(n,R)$
+  - Group structure and properties
+  
+- **Isometric Action** (`UpperHalfPlane.instIsIsometricSMulSpecialLinearGroupFinOfNatNatReal`)
+  - Theorem: $\mathrm{SL}(2,\mathbb{R})$ acts on $\mathbb{H}$ as isometries
+
+## What We're Building
+
+### Core Definitions
+1. **Projective Special Linear Group**: $\mathrm{PSL}(2,\mathbb{R}) := \mathrm{SL}(2,\mathbb{R})/\{\pm I\}$
+2. **Unit Tangent Bundle**: $T^1\mathbb{H} = \{(z,v) \in \mathbb{H} \times \mathbb{C} \mid |v| = \mathrm{Im}(z)\}$
+3. **Orientation-Preserving Isometry Group**: $\mathrm{Isom}^+(\mathbb{H}^2)$
+
+### Isomorphisms
+1. **$\mathrm{PSL}(2,\mathbb{R}) \to \mathrm{Isom}^+(\mathbb{H}^2)$** via Möbius transformations:
+   $$g = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \mapsto \left(z \mapsto \frac{az+b}{cz+d}\right)$$
+
+2. **$\mathrm{PSL}(2,\mathbb{R}) \to T^1\mathbb{H}$** via frame action:
+   $$g \mapsto \left(\frac{ai+b}{ci+d}, \frac{1}{(ci+d)^2}\right)$$
+
+3. **$T^1\mathbb{H} \to \mathrm{Isom}^+(\mathbb{H}^2)$** via unique isometry sending base frame to given frame
 
 ## Project Structure
 
-```bash
-MinimalSurfaces/
-├── Basic.lean              # Basic definitions of manifolds and surfaces
-├── Area.lean              # Hausdorff measure and area functional
-├── Isotopy.lean           # Isotopy and diffeomorphisms
-├── Varifolds/
-│   └── Basic.lean         # Varifold theory (Geometric Measure Theory)
-├── MinMax/
-│   └── Basic.lean         # Min-max theory and main theorem
-└── Convergence/
-    └── Basic.lean         # Convergence theory in varifold sense
-
-blueprint/
-├── src/                   # LaTeX source files for the blueprint
-├── web/                   # Generated HTML with interactive dependency graph
-└── lean_decls            # Lean declarations mapping
 ```
-
-## Recent Progress (2025-09-29)
-
-### ✅ Completed Today
-
-- Fixed all Mathlib import paths (`BorelSpace`, `ContinuousMap`, etc.)
-- Implemented `hausdorffArea` using 2-dimensional Hausdorff measure
-- Added `GeneralizedFamilyOfSurfaces` and `Isotopy` structures
-- Connected LaTeX blueprint definitions with Lean code
-- Fixed `MinMaxSequence` and `SaturatedSet` type parameters
-- Blueprint dependency graph now correctly displays all definitions
-
-### 🔧 Technical Improvements
-
-- Resolved all compilation errors in the project
-- Added proper `BorelSpace` instances where needed
-- Fixed `EmbeddedSurface` constructor (4 fields)
-- Integrated `𝓝` (neighborhood filter) notation
-
-## Blueprint Visualization
-
-The project includes an interactive blueprint that visualizes the dependency graph of theorems and definitions.
-
-### Online Version
-
-**[min-max-construction.zeabur.app](https://min-max-construction.zeabur.app/)** - Auto-updates on push to main
-
-### Local Development
-
-#### View Blueprint Locally
-
-```bash
-# Start local server
-cd ~/minimal_surfaces_new
-python3 -m http.server 8001
-
-# In browser, visit:
-# http://localhost:8001
+.
+├── PSL2R/                    # Main Lean source files
+│   ├── Basic.lean           # Basic definitions
+│   ├── PSL.lean             # PSL(2,R) definition and properties
+│   ├── UnitTangentBundle.lean  # Unit tangent bundle
+│   ├── IsometryGroup.lean   # Isometry group
+│   └── Equivalence.lean     # Main equivalence theorems
+├── blueprint/               # Mathematical blueprint
+├── lakefile.toml           # Lake build configuration
+└── README.md               # This file
 ```
-
-If port is busy:
-
-```bash
-# Kill existing process
-kill $(lsof -t -i:8001)
-
-# Or use different port
-python3 -m http.server 8002
-```
-
-#### Update Blueprint Content
-
-```bash
-# 1. Edit LaTeX source files
-vim blueprint/src/setup.tex    # Edit definitions, theorems, etc.
-
-# 2. Regenerate HTML from LaTeX
-cd blueprint
-leanblueprint web
-cd ..
-
-# 3. Copy to root for deployment (Zeabur reads from root)
-cp -r blueprint/web/* .
-
-# 4. View changes locally
-python3 -m http.server 8001
-```
-
-### Deployment
-
-#### Automatic Deployment
-
-```bash
-# Use the update script (generates + commits + pushes)
-~/update-blueprint.sh
-
-# Zeabur will auto-deploy within 1-2 minutes
-```
-
-#### Manual Deployment
-
-```bash
-# 1. Generate blueprint
-cd blueprint && leanblueprint web && cd ..
-
-# 2. Copy to root directory
-cp -r blueprint/web/* .
-
-# 3. Commit and push
-git add *.html js styles declarations *.svg
-git commit -m "Update blueprint"
-git push origin main
-```
-
-## Key Formalized Structures
-
-### Core Definitions
-
-```lean
--- Manifold structure
-class ClosedRiemannian3Manifold (M : Type*) 
-
--- Surface representation
-structure EmbeddedSurface (M : Type*) where
-  carrier : Set M
-  is_closed : IsClosed carrier
-  dim_two : True
-  is_embedded : True
-
--- Varifold structures
-structure Varifold (k n : ℕ) (M : Type*)
-structure IntegerVarifold (k n : ℕ) (M : Type*)
-
--- Min-max machinery
-structure GeneralizedFamilyOfSurfaces (M : Type*)
-structure SaturatedSet (M : Type*)
-structure MinMaxSequence (Λ : SaturatedSet M)
-noncomputable def m0 (Λ : SaturatedSet M) : ℝ  -- Width functional
-```
-
-### Main Theorem Statement
-
-```lean
-theorem simon_smith (Λ : SaturatedSet M) :
-  ∃ (seq : MinMaxSequence Λ) (S : EmbeddedSurface M),
-    is_minimal S ∧ 
-    area S = m0 Λ ∧
-    ∃ (V : IntegerVarifold 2 3 M), 
-      convergesInVarifoldSense (fun n => sorry) V.toVarifold
-```
-
-## Building & Development
-
-### Build Lean Project
-
-```bash
-# Build your Lean code
-lake build MinimalSurfaces
-
-# Build everything (if needed)
-lake build
-```
-
-### Local Blueprint Development
-
-#### Quick Local Preview
-
-```bash
-# After editing LaTeX files, regenerate and view locally
-cd blueprint && leanblueprint web && cd ..
-python3 -m http.server 8001
-# Visit http://localhost:8001/blueprint/web/
-```
-
-#### Full Update Workflow
-
-```bash
-# 1. Edit LaTeX source
-vim blueprint/src/setup.tex
-
-# 2. Regenerate HTML
-cd blueprint && leanblueprint web && cd ..
-
-# 3. Copy to root (for deployment)
-cp -r blueprint/web/* .
-
-# 4. View locally
-python3 -m http.server 8001
-# Visit http://localhost:8001
-```
-
-### Deploy to Production
-
-```bash
-# Use the automated script
-~/update-blueprint.sh
-
-# This script does:
-# 1. Generates blueprint (leanblueprint web)
-# 2. Copies files to root directory
-# 3. Commits with timestamp
-# 4. Pushes to GitHub
-# 5. Zeabur auto-deploys in 1-2 minutes
-```
-
-### Blueprint Features
-
-- **Interactive dependency graph**: Click nodes to see definitions
-- **Color coding**:
-  - Blue border: Statement ready to formalize
-  - Green border: Statement formalized in Lean
-  - Green background: Proof completed
-- **LaTeX-Lean linking**: Direct navigation between math and code
-
-## TODO List
-
-### High Priority
-
-- [ ] Implement `is_minimal` predicate (mean curvature = 0)
-- [ ] Define proper varifold convergence
-- [ ] Implement isotopy action on families
-- [ ] Prove area functional properties
-
-### Medium Priority
-
-- [ ] First variation formula
-- [ ] Monotonicity formula
-- [ ] Allard regularity theorem
-- [ ] Caccioppoli sets
-
-### Future Work
-
-- [ ] Complete compactness theory
-- [ ] Generic finiteness results
-- [ ] Multiplicity one theorem
-- [ ] Full Simon-Smith theorem proof
-
-## Mathematical Components
-
-### Geometric Measure Theory
-
-- **Hausdorff Measure**: 2-dimensional measure for surfaces
-- **Varifolds**: Generalized surfaces as measures on Grassmann bundles
-- **Convergence**: Weak-* convergence in measure spaces
-
-### Min-Max Theory
-
-- **Width**: inf-sup characterization of minimal surfaces
-- **Saturation**: Closure under diffeomorphisms
-- **Min-max sequences**: Realizing the width
 
 ## Installation
 
+### Prerequisites
+- [Lean 4](https://leanprover.github.io/lean4/doc/setup.html)
+- [VS Code](https://code.visualstudio.com/) with [Lean 4 extension](https://marketplace.visualstudio.com/items?itemName=leanprover.lean4)
+
+### Setup
 ```bash
-# Install Lean 4
-curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/psl2r-formalization.git
+cd psl2r-formalization
 
-# Clone repository
-git clone https://github.com/Xinze-Li-Bryan/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4.git
-cd The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4
-
-# Build with Mathlib cache
+# Build the project
 lake exe cache get
 lake build
 ```
 
 ## Contributing
 
-Contributions are welcome! Priority areas:
-
-- Filling in `sorry` placeholders
-- Adding documentation
-- Extending the blueprint
-- Creating examples
-
-### Development Workflow
-
-1. Make changes to Lean files
-2. Run `lake build` to verify
-3. Update blueprint LaTeX if needed
-4. Run `~/update-blueprint.sh`
-5. Submit pull request
+Contributions are welcome! Please feel free to:
+- Open issues for bugs or suggestions
+- Submit pull requests
+- Discuss mathematical approaches
 
 ## References
 
-### Primary Source
+Key references for this formalization:
+- Katok, S. *Fuchsian Groups*. University of Chicago Press, 1992.
+- Thurston, W. *Three-Dimensional Geometry and Topology*. Princeton University Press, 1997.
+- Ratcliffe, J. *Foundations of Hyperbolic Manifolds*. Springer, 2006.
 
-- [Colding-De Lellis: The min-max construction of minimal surfaces](https://arxiv.org/abs/math/0303305) (2003)
+## Acknowledgments
 
-### Classical Works
-
-- Pitts, J.T. (1981). *Existence and regularity of minimal surfaces on Riemannian manifolds*
-- Simon, L. (1987). *Lectures on geometric measure theory*
-- Almgren, F. (1965). The theory of varifolds
-
-### Modern Developments
-
-- Marques, F. & Neves, A. (2014). Min-max theory and the Willmore conjecture
-- De Lellis, C. & Pellandini, F. (2010). Genus bounds for minimal surfaces
-
-## Project Statistics
-
-- **Definitions formalized**: 12
-- **Theorems stated**: 3
-- **Proofs completed**: 0 (framework ready)
-- **Lines of Lean code**: ~500
-- **Blueprint pages**: 8
+This project builds on the extensive [Mathlib4](https://github.com/leanprover-community/mathlib4) library.
 
 ## License
 
-Apache 2.0 License - see LICENSE file for details.
-
-## Contact
-
-- GitHub Issues: [Project Issues](https://github.com/Xinze-Li-Bryan/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/issues)
-- Author: Xinze Li
+This project is licensed under the Apache License 2.0.

@@ -1,11 +1,11 @@
-homepage: https://github.com/Xinze-Li-Bryan/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4
-title: 'The Min–Max Construction of Minimal Surfaces'
-description: 'Formalization of the Colding–De Lellis min–max minimal surface theory in Lean 4'
+homepage: https://github.com/Xinze-Li-Bryan/psl2r-formalization
+title: 'PSL(2,ℝ) and Hyperbolic Geometry'
+description: 'Formalization of the equivalence T¹ℍ ≅ PSL(2,ℝ) ≅ Isom⁺(ℍ²) in Lean 4'
 pdf:
   filename: 'blueprint.pdf'
-  title: 'The Min–Max Construction of Minimal Surfaces: A Formal Development'
-  author: 'Xinze Li (after Pitts, Simon–Smith, Colding–De Lellis)'
-dep_graph_root: 'MinimalSurfaces'
+  title: 'PSL(2,ℝ) and Hyperbolic Geometry: A Formal Development'
+  author: 'Xinze Li (with Kasra Rafi)'
+dep_graph_root: 'PSL2R'
 decl_graph: true
-dochome: 'https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/'
-docfind: 'https://xinze-li-bryan.github.io/The-Min-Max-Construction-of-Minimal-Surfaces-in-Lean4/find/'
+dochome: 'https://xinze-li-bryan.github.io/psl2r-formalization/'
+docfind: 'https://xinze-li-bryan.github.io/psl2r-formalization/find/'
